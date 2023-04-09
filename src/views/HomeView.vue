@@ -16,7 +16,7 @@
 <style scoped>
 
   .landing-page {
-    margin: auto;
+    margin: 2.5rem auto;
     width: 60%;
     padding: 10px;
     display: flex;
@@ -25,26 +25,41 @@
   }
 
   .title {
-    margin: 50px 0px;
+    margin: 50px 0px 20px 0px;
     font-size: 2rem;
     font-weight: bold;
+    text-align: center;
   }
 
   .description {
-    
+    font-size: 1.2rem;
+    text-align: justify;
   }
 
   .buttons {
+    margin: 20px 0px;
     display: flex;
+    width: 100%;
   }
 
   .btn {
+    text-align: center;
+    height: fit-content;
     border: solid;
     border-width: 3px;
     border-radius: 10px;
     padding: 10px 20px;
-    background-color: aqua;
     margin: 5px 5px;
+  }
+
+  #start {
+    width: 60%;
+    background-color: aqua;
+  }
+
+  #about {
+    width: 40%;
+    background-color: rgba(128, 128, 128, 0.1);
   }
 
 
