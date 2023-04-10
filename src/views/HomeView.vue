@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <template>
   <div class="landing-page">
     <div class="title">
@@ -7,7 +11,7 @@
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum delectus praesentium et accusamus necessitatibus dolorem minima nulla recusandae, beatae alias nesciunt distinctio est tempore voluptatibus ut, laudantium itaque quidem porro.</p>
     </div>
     <div class="buttons">
-      <div class="btn" id="start">Lets start the game!</div>
+      <RouterLink id="start" class="btn" to="/tweet">Lets start the game!</RouterLink>
       <div class="btn" id="about">About me</div>
     </div>
   </div>

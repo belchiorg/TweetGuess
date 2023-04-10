@@ -2,14 +2,14 @@
   <div class="tweet">
     <div class="thead">
       <div class="account">
-        <img class="pfp" src="" alt="profile picture">
+        <img class="pfp" src="https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227" alt="profile picture">
         <div class="accat">
           <h3 class="name">Account</h3>
           <h3 class="arroba">@Account</h3>
         </div>
       </div>
       <div>
-        <img src="" alt="TweeterLogo">
+        <img class="TwitterLogo" src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="TweeterLogo">
       </div>
     </div>
     <div class="tbody">
@@ -28,23 +28,25 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 30%;
+    width: 50%;
+    max-width: 700px;
     align-items: center;
     border:solid;
     border-color: rgba(128, 128, 128, 0.3);
     border-radius: 2rem;
-    padding: 5px; 
+    padding: 5px 0px; 
   }
 
   .thead {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    width: 95%;
+    justify-content: space-between;
   }
 
   .tbody {
     width: 100%;
-    padding: 5px 15px;
+    padding: 3px 15px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -53,6 +55,8 @@
   .account {
     display: flex;
     flex-direction: row;
+    width: fit-content;
+    align-items: center;
   }
 
   .accat {
@@ -61,23 +65,44 @@
   }
 
   .message {
-    margin: 10px 0px;
+    margin: 0px 0px;
     width: 95%;
+    line-height: normal;
     text-align: justify;
     font-size: 1.5rem;
   }
 
+
+  h3, .date {
+    font-size: 1rem;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .date, .arroba {
+    color: rgb(70, 70, 70);
+  }
+
   .date {
-    margin: 10px 0px;
+    margin: 5px 0px 5px 0px;
     width: 95%;
     text-align: justify;
   }
 
+  hr {
+    width: 90.25%;
+    height: 2px;
+    border-color: rgba(128, 128, 128, 0.3);
+  }
+
   .tfooter {
-    width: 100%;
+    width: 95%;
     display: flex;
     align-items: center;
-    margin-bottom: 20px ;
+    margin-top: 15px;
+    margin-bottom: 15px ;
   }
 
   #guess {
@@ -85,7 +110,15 @@
     margin: auto;
     align-items: center;
     border-radius: 10px;
-    padding: 0px 5px;
+    padding: 0px 10px;
+    font-size: 1.4rem;
+  }
+
+  .thead img {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 5px 15px;
   }
 
 </style>
