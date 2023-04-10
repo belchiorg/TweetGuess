@@ -49,7 +49,7 @@
     border-width: 3px;
     border-radius: 10px;
     padding: 10px 20px;
-    margin: 5px 5px;
+    margin: 0px 5px;
   }
 
   #start {
