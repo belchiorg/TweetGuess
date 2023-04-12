@@ -1,10 +1,16 @@
+<script setup>
+  import GuessField from './GuessField.vue'
+  let tweet = defineProps(['name'])
+
+</script>
+
 <template>
   <div class="tweet">
     <div class="thead">
       <div class="account">
-        <img class="pfp" src="https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227" alt="profile picture">
+        <img class="pfp" src="https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227" alt="profile picture" @click="console.log(tweet)">
         <div class="accat">
-          <h3 class="name">Account</h3>
+          <h3 class="name">{{ tweet }}</h3>
           <h3 class="arroba">@Account</h3>
         </div>
       </div>
@@ -18,7 +24,7 @@
     </div>
     <hr>
     <div class="tfooter">
-      <input type="text" name="Guess" id="guess">
+      <GuessField/>
     </div>
   </div>
 </template>
@@ -100,18 +106,10 @@
   .tfooter {
     width: 95%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 15px;
     margin-bottom: 15px ;
-  }
-
-  #guess {
-    width: 95%;
-    margin: auto;
-    align-items: center;
-    border-radius: 10px;
-    padding: 0px 10px;
-    font-size: 1.4rem;
   }
 
   .thead img {
