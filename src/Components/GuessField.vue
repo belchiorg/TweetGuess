@@ -2,33 +2,40 @@
   import comp from '../data/Companies.json'
   import {watch, ref, reactive} from 'vue'
   import JSConfetti from 'js-confetti'
+  import { defineProps } from "vue";
+
+  const props = defineProps({
+    handleCorrectCompanySelection: Function,
+    answer: String
+  });
+
 
   const jsConfetti = new JSConfetti()
 
   let search = ref("");
   const companies = ref(comp)
   let filteredArr = companies.value
-  let rightCompany = 'Google'
 
   const state = reactive({isActive: false})
 
-  function atClickCompany(company) {
-    search=company.name
+  function atClickCompany(company, answer, func) {
+    search.value=company.name
     state.isActive = false
-    if (company.name.toLowerCase() == rightCompany.toLowerCase()) {
+    if (company.name.toLowerCase() == answer.toLowerCase()) {
       jsConfetti.addConfetti();
+      func();
     }
   }
 
   watch (search, () => {
-    filteredArr = companies.value.filter(company => company.name.toLowerCase().includes(search._value.trim().toLowerCase()))
+    filteredArr = companies.value.filter(company => company.name.toLowerCase().includes(search.value.trim().toLowerCase()))
   })
 </script>
 
 <template>
   <input type="text" autocomplete="off" v-model="search" @focus="state.isActive=true" id="GuessField">
   <div v-if="state.isActive && (filteredArr)" class="list">
-    <div class="company" v-for="company in filteredArr" @click="atClickCompany(company)">
+    <div class="company" v-for="company in filteredArr" @click="atClickCompany(company, answer, handleCorrectCompanySelection)">
       <h3>{{ company.name }}</h3>
     </div>
   </div>

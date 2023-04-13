@@ -1,17 +1,22 @@
 <script setup>
   import GuessField from './GuessField.vue'
-  let tweet = defineProps(['name'])
+  import { defineProps } from "vue";
 
+  const props = defineProps({
+    handleCorrectCompanySelection: Function,
+    tweet: Object,
+    hidden: Boolean
+  });
 </script>
 
 <template>
   <div class="tweet">
     <div class="thead">
       <div class="account">
-        <img class="pfp" src="https://companieslogo.com/img/orig/GOOG-0ed88f7c.png?t=1633218227" alt="profile picture" @click="console.log(tweet)">
+        <img v-show="!hidden" class="pfp" :src="tweet.logo" alt="profile picture">
         <div class="accat">
-          <h3 class="name">{{ tweet }}</h3>
-          <h3 class="arroba">@Account</h3>
+          <h3 v-show="!hidden" class="name">{{ tweet.name }}</h3>
+          <h3 v-show="!hidden" class="arroba">{{tweet.at}}</h3>
         </div>
       </div>
       <div>
@@ -19,12 +24,12 @@
       </div>
     </div>
     <div class="tbody">
-      <p class="message">Eu sou bue curtido, teste de um texto muito maior, ver o que acontece com isto </p>
-      <p class="date">2:57 PM | Mar 15, 2023</p>
+      <p class="message">{{ tweet.content }}</p>
+      <p class="date">{{ tweet.date }}</p>
     </div>
     <hr>
     <div class="tfooter">
-      <GuessField/>
+      <GuessField :answer="tweet.name" :handleCorrectCompanySelection="handleCorrectCompanySelection"/>
     </div>
   </div>
 </template>
