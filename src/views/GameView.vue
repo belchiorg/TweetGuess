@@ -36,6 +36,28 @@ function handleCorrectCompanySelection() {
 
 <template>
   <div class="content">
+    <h1 class="index">{{ currentTweetInd+1 }}/{{ tweets.length }}</h1>
     <Tweet :tweet="currentTweet" :handleCorrectCompanySelection="handleCorrectCompanySelection" :hidden="state.hidden"/>
+    <div class="btns" v-show="!state.hidden">
+      <a href="https://google.com" target="_blank"><button>Show</button></a>
+      <button  @click="handleNextTweet">Next</button>
+    </div>
   </div>
 </template>
+
+<style>
+.content {
+  margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.index {
+  margin: 40px 0px 20px 0px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+</style>

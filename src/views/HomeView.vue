@@ -11,8 +11,8 @@ import { RouterLink, RouterView } from 'vue-router'
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum delectus praesentium et accusamus necessitatibus dolorem minima nulla recusandae, beatae alias nesciunt distinctio est tempore voluptatibus ut, laudantium itaque quidem porro.</p>
     </div>
     <div class="buttons">
-      <RouterLink id="start" class="btn" to="/tweet">Lets start the game!</RouterLink>
       <div class="btn" id="about">About me</div>
+      <RouterLink id="start" class="btn" to="/tweet">Lets start the game!</RouterLink>
     </div>
   </div>
 </template>
@@ -54,11 +54,14 @@ import { RouterLink, RouterView } from 'vue-router'
     border-radius: 10px;
     padding: 10px 20px;
     margin: 0px 5px;
+    text-decoration: none;
+    color: #f0f9ff
   }
 
   #start {
-    width: 60%;
-    background-color: aqua;
+    width: 65%;
+    background-color: #bae6fd;
+    color: #020617;
   }
 
   #about {

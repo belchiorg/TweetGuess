@@ -46,6 +46,8 @@
     border-color: rgba(128, 128, 128, 0.3);
     border-radius: 2rem;
     padding: 5px 0px; 
+    background-color: #f0f9ff;
+    color: #020617;
   }
 
   .thead {
@@ -93,7 +95,7 @@
   }
 
   .date, .arroba {
-    color: rgb(70, 70, 70);
+    color: #475569;
   }
 
   .date {
@@ -119,8 +121,8 @@
 
   .thead img {
     border-radius: 100%;
-    height: 50px;
-    width: 50px;
+    height: 3.7rem;
+    width: 3.7rem;
     margin: 5px 15px;
   }
 

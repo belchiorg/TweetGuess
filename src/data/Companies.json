@@ -1,21 +1,27 @@
 [
   {
-    "name": "Microsoft"
+    "name": "Microsoft",
+    "id": 1
   },
   {
-    "name": "Google"
+    "name": "Google",
+    "id": 2
   },
   {
-    "name": "Amazon"
+    "name": "Amazon",
+    "id": 3
   },
   {
-    "name": "Meta"
+    "name": "Meta",
+    "id": 4
   },
   {
-    "name": "Twitter"
+    "name": "Twitter",
+    "id": 5
   },
   {
-    "name": "Netflix"
+    "name": "Netflix",
+    "id": 6
   }
 ]
   

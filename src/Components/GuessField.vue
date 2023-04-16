@@ -4,7 +4,7 @@
   import JSConfetti from 'js-confetti'
   import { defineProps } from "vue";
 
-  const props = defineProps({
+  defineProps({
     handleCorrectCompanySelection: Function,
     answer: String
   });
@@ -35,7 +35,7 @@
 <template>
   <input type="text" autocomplete="off" v-model="search" @focus="state.isActive=true" id="GuessField">
   <div v-if="state.isActive && (filteredArr)" class="list">
-    <div class="company" v-for="company in filteredArr" @click="atClickCompany(company, answer, handleCorrectCompanySelection)">
+    <div class="company" v-for="company in filteredArr" :key="company.id" @click="atClickCompany(company, answer, handleCorrectCompanySelection)">
       <h3>{{ company.name }}</h3>
     </div>
   </div>
@@ -51,6 +51,7 @@
     font-size: 1.4rem;
     text-align: center;
     z-index: 2;
+    background-color: #bae6fd;
   }
 
   .list {
