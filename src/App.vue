@@ -34,7 +34,7 @@ import { RouterLink, RouterView } from 'vue-router'
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: #0c4a6e;
+    background-color: #1DA1F2;
   }
 
   nav a {
@@ -42,6 +42,6 @@ import { RouterLink, RouterView } from 'vue-router'
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0% 25px;
-    color: #f0f9ff;
+    color: #F5F8FA;
   }
 </style>

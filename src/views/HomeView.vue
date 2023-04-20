@@ -60,13 +60,24 @@ import { RouterLink, RouterView } from 'vue-router'
 
   #start {
     width: 65%;
-    background-color: #bae6fd;
+    background-color: #1DA1F2;
+    color: #020617;
+  }
+
+  #start:hover {
+    background-color: #0C7BBF;
     color: #020617;
   }
 
   #about {
     width: 40%;
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: #E1E8ED;
+    color: #14171A;
+  }
+
+  #about:hover {
+    background-color: #AAB8C2;
+    color: #020617;
   }
 
 

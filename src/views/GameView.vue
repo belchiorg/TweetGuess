@@ -39,13 +39,13 @@ function handleCorrectCompanySelection() {
     <h1 class="index">{{ currentTweetInd+1 }}/{{ tweets.length }}</h1>
     <Tweet :tweet="currentTweet" :handleCorrectCompanySelection="handleCorrectCompanySelection" :hidden="state.hidden"/>
     <div class="btns" v-show="!state.hidden">
-      <a href="https://google.com" target="_blank"><button>Show</button></a>
-      <button  @click="handleNextTweet">Next</button>
+      <a :href="currentTweet.link" target="_blank" class="btn" id="show">Go to tweet</a>
+      <div  @click="handleNextTweet" class="btn" id="next">Guess next tweet</div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 .content {
   margin: 2.5rem auto;
   display: flex;
@@ -60,4 +60,47 @@ function handleCorrectCompanySelection() {
   font-weight: bold;
   text-align: center;
 }
+
+.btns {
+  width: 50%;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+
+.btn {
+    text-align: center;
+    height: fit-content;
+    border: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0px 5px;
+    text-decoration: none;
+    color: #f0f9ff
+  }
+
+  #show {
+    width: 40%;
+    background-color: #E1E8ED;
+    color: #020617;
+    
+  }
+
+  #next {
+    width: 60%;
+    background-color: #1DA1F2;
+    color: #020617;
+  }
+
+  #show:hover {
+    background-color: #B3BCC1;
+    color: #020617;
+  }
+
+  #next:hover {
+    background-color: #0C7BBF;
+    color: #020617;
+  }
 </style>

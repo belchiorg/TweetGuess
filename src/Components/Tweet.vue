@@ -43,10 +43,10 @@
     max-width: 700px;
     align-items: center;
     border:solid;
-    border-color: rgba(128, 128, 128, 0.3);
+    border-color: #657786;
     border-radius: 2rem;
     padding: 5px 0px; 
-    background-color: #f0f9ff;
+    background-color: #E1E8ED;
     color: #020617;
   }
 
@@ -95,7 +95,7 @@
   }
 
   .date, .arroba {
-    color: #475569;
+    color: #657786;
   }
 
   .date {
@@ -106,8 +106,8 @@
 
   hr {
     width: 90.25%;
-    height: 2px;
-    border-color: rgba(128, 128, 128, 0.3);
+    height: 1px;
+    border-color: #657786;
   }
 
   .tfooter {
