@@ -5,7 +5,8 @@
   const props = defineProps({
     handleCorrectCompanySelection: Function,
     tweet: Object,
-    hidden: Boolean
+    hidden: Boolean,
+    incWrongAnswers: Function
   });
 </script>
 
@@ -29,7 +30,7 @@
     </div>
     <hr>
     <div class="tfooter">
-      <GuessField :answer="tweet.name" :handleCorrectCompanySelection="handleCorrectCompanySelection"/>
+      <GuessField :answer="tweet.name" :handleCorrectCompanySelection="handleCorrectCompanySelection" :incWrongAnswers="incWrongAnswers"/>
     </div>
   </div>
 </template>

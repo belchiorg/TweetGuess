@@ -4,9 +4,10 @@
   import JSConfetti from 'js-confetti'
   import { defineProps } from "vue";
 
-  defineProps({
+  const props = defineProps({
     handleCorrectCompanySelection: Function,
-    answer: String
+    answer: String,
+    incWrongAnswers: Function
   });
 
 
@@ -25,6 +26,9 @@
     if (company.name.toLowerCase() == answer.toLowerCase()) {
       jsConfetti.addConfetti();
       func();
+    }
+    else {
+      props.incWrongAnswers();
     }
   }
 

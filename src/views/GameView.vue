@@ -21,6 +21,11 @@ let currentTweet = tweets.value[currentTweetInd]
 
 let state = reactive({hidden: true})
 
+let wrongAnswers = ref(0);
+
+function incWrongAnswers() {
+  wrongAnswers.value++;
+}
 
 function handleNextTweet() {
   currentTweetInd++;
@@ -36,8 +41,9 @@ function handleCorrectCompanySelection() {
 
 <template>
   <div class="content">
+    <h1>{{ wrongAnswers }}</h1>
     <h1 class="index">{{ currentTweetInd+1 }}/{{ tweets.length }}</h1>
-    <Tweet :tweet="currentTweet" :handleCorrectCompanySelection="handleCorrectCompanySelection" :hidden="state.hidden"/>
+    <Tweet :tweet="currentTweet" :handleCorrectCompanySelection="handleCorrectCompanySelection" :hidden="state.hidden" :incWrongAnswers="incWrongAnswers"/>
     <div class="btns" v-show="!state.hidden">
       <a :href="currentTweet.link" target="_blank" class="btn" id="show">Go to tweet</a>
       <div  @click="handleNextTweet" class="btn" id="next">Guess next tweet</div>
