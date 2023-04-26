@@ -19,7 +19,10 @@ shuffle(tweets.value);
 let currentTweetInd = 0;
 let currentTweet = tweets.value[currentTweetInd]
 
-let state = reactive({hidden: true})
+let state = reactive({
+  hidden: true,
+  isEndGame: false
+})
 
 let wrongAnswers = ref(0);
 
@@ -29,25 +32,42 @@ function incWrongAnswers() {
 
 function handleNextTweet() {
   currentTweetInd++;
-  currentTweet = tweets.value[currentTweetInd]
-  state.hidden = true;
+  if (currentTweetInd <= tweets.value.length) {
+    currentTweet = tweets.value[currentTweetInd]
+    state.hidden = true;
+  }
+  else {
+    state.isEndGame = true
+  }
 }
 
 function handleCorrectCompanySelection() {
   state.hidden = false
 }
 
+function getFinalMessage() {
+  if (wrongAnswers.value <= 10) {
+    return `You've finished with a total of ${wrongAnswers.value} wrong guesses! That's amazing!`
+  }
+  return `You had a total of ${wrongAnswers.value} wrong guesses. That's kinda weak, I'm ngl :P`
+}
+
 </script>
 
 <template>
-  <div class="content">
-    <h1>{{ wrongAnswers }}</h1>
-    <h1 class="index">{{ currentTweetInd+1 }}/{{ tweets.length }}</h1>
+  <div v-if="!state.isEndGame" class="content">
+    <h1 class="title">{{ currentTweetInd+1 }}/{{ tweets.length }}</h1>
     <Tweet :tweet="currentTweet" :handleCorrectCompanySelection="handleCorrectCompanySelection" :hidden="state.hidden" :incWrongAnswers="incWrongAnswers"/>
     <div class="btns" v-show="!state.hidden">
       <a :href="currentTweet.link" target="_blank" class="btn" id="show">Go to tweet</a>
       <div  @click="handleNextTweet" class="btn" id="next">Guess next tweet</div>
     </div>
+    <h3 v-show="wrongAnswers > 0">Wrong answers: {{ wrongAnswers }}</h3>
+  </div>
+  <div v-else class="content final">
+    <h1 class="title">Congrats! You finished the game!</h1>
+    <h2 class="description">You've guessed every tweet on this game! {{ getFinalMessage() }} I hope you had fun playing this. I'd really appreciate if you could give me your opinion.</h2>
+
   </div>
 </template>
 
@@ -60,7 +80,11 @@ function handleCorrectCompanySelection() {
   justify-content: center;
 }
 
-.index {
+.final {
+  width: 50%;
+}
+
+.title {
   margin: 40px 0px 20px 0px;
   font-size: 2rem;
   font-weight: bold;
@@ -74,6 +98,11 @@ function handleCorrectCompanySelection() {
   justify-content: space-between;
   margin: 20px 0px;
 }
+
+.description {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 
 .btn {
     text-align: center;

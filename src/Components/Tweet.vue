@@ -1,8 +1,9 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
   import GuessField from './GuessField.vue'
   import { defineProps } from "vue";
 
-  const props = defineProps({
+  defineProps({
     handleCorrectCompanySelection: Function,
     tweet: Object,
     hidden: Boolean,
